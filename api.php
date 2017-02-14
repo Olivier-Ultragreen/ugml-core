@@ -19,21 +19,6 @@ function getHeader($pFile) {
 // with default values of constants it is like [HEADER]|key1=value1|key2=value2|key3=value3|/]
 // NOTE it might be possible to extract the dates more eleganly ??? efficiently throught regular expression feel free to submit me one if you have.
 function getHeaderInfo($sHeader) {
-	/*
-	$hHeaderInfo=array();
-	// gets the key=value blocks in an array by spliting header into chunks
-	$a=explode(HEADER_PARAM_SPLITER,$sHeader);
-	array_shift($a);
-	array_pop($a);
-	// printArray($a);
-	foreach($a as $s) {
-		// organizes keys and values into an hash
-		list($sKey,$sVal)=explode('=',$s);
-		$hHeaderInfo[$sKey]=$sVal;
-	}
-	return $hHeaderInfo;
-	*/
-	// die($sHeader);
 	$sHeader = str_replace(array(OPENING_HEADER_DELIMITER,CLOSING_HEADER_DELIMITER),array('',''),$sHeader);
 	// remove the special chars. That allows the use of multiline ugml tag
 	$sHeader = str_replace(array("\n","\r","\t",'=|','|'),array('','','','(-x-)','(-x-)'),$sHeader);
